@@ -1,2 +1,2 @@
 # AVR
-Driver code for microcontroller peripherals.
+Driver code for ATMEGA microcontroller peripherals.
