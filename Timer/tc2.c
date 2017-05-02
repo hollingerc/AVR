@@ -21,34 +21,34 @@
  * The calling function will modify the structure as required, then call
  * tc0_set_config() to write the data back to the Timer/Counter 2 registers.
  */
-void tc2_get_config(Timer_Counter2 timer)
+void tc2_get_config(TIMER_COUNTER2_TYPE *timer)
 {
-  timer.tccr2a.reg = TCCR2A;
-  timer.tccr2b.reg = TCCR2B;
-  timer.tcnt2 = TCNT2;
-  timer.ocr2a = OCR2A;
-  timer.ocr2b = OCR2B;
-  timer.timsk2.reg = TIMSK2;
-  timer.tifr2.reg = TIFR2;
+  timer->tccr2a.reg = TCCR2A;
+  timer->tccr2b.reg = TCCR2B;
+  timer->tcnt2 = TCNT2;
+  timer->ocr2a = OCR2A;
+  timer->ocr2b = OCR2B;
+  timer->timsk2.reg = TIMSK2;
+  timer->tifr2.reg = TIFR2;
 
-  }/* end tc2_get_config() */
+}/* end tc2_get_config() */
 
 /* tc2_set_config()
  *
  * Write the contents of the Timer_Counter2 structure back to the Timer/Counter
  * 2 registers.
  */
-void tc2_set_config(Timer_Counter2 timer)
+void tc2_set_config(TIMER_COUNTER2_TYPE *timer)
 {
-  TCCR2A = timer.tccr2a.reg;
-  TCCR2B = timer.tccr2b.reg;
-  TCNT2 = timer.tcnt2;
-  OCR2A = timer.ocr2a;
-  OCR2B = timer.ocr2b;
-  TIMSK2 = timer.timsk2.reg;
-  TIFR2 = timer.tifr2.reg;
+  TCCR2A = timer->tccr2a.reg;
+  TCCR2B = timer->tccr2b.reg;
+  TCNT2 = timer->tcnt2;
+  OCR2A = timer->ocr2a;
+  OCR2B = timer->ocr2b;
+  TIMSK2 = timer->timsk2.reg;
+  TIFR2 = timer->tifr2.reg;
 
-  }/* end tc2_set_config() */
+}/* end tc2_set_config() */
 
 /* Write the value to the OCR2A register.
  */
