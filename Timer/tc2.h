@@ -205,10 +205,10 @@ typedef struct {
 } Timer_Counter2;
 
 /* Fill a data structure with the contents of the Timer/Counter 2 registers. */
-void tc2_get_config(Timer_Counter2 timer);
+void tc2_get_config(Timer_Counter2 *timer);
 
 /* Write the data structure back to the Timer/Counter 2 registers. */
-void tc2_set_config(Timer_Counter2 timer);
+void tc2_set_config(Timer_Counter2 *timer);
 
 /* Write the value to the OCR2A and OCR2B registers.  */
 void tc2_set_ocr2a(uint8_t val);
