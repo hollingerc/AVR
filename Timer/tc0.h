@@ -205,10 +205,10 @@ typedef struct {
 } Timer_Counter0;
 
 /* Fill a data structure with the contents of the Timer/Counter 0 registers. */
-void tc0_get_config(Timer_Counter0 timer);
+void tc0_get_config(Timer_Counter0 *timer);
 
 /* Write the data structure back to the Timer/Counter 0 registers. */
-void tc0_set_config(Timer_Counter0 timer);
+void tc0_set_config(Timer_Counter0 *timer);
 
 /* Write the value to the OCR0A and OCR0B registers.  */
 void tc0_set_ocr0a(uint8_t val);
