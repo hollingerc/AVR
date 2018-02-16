@@ -4,11 +4,6 @@
  * Author:  Craig Hollinger
  *
  * Primitive driver routines to run the USART peripheral.
- *
- * This file is free software; you can redistribute it and/or modify
- * it under the terms of either the GNU General Public License version 3
- * or the GNU Lesser General Public License version 3, both as
- * published by the Free Software Foundation.
  */
 #ifndef _UART_H_
 #define _UART_H_ 1
@@ -42,66 +37,25 @@
 #define UART_OVERRUN_ERROR 3
 #define UART_PARITY_ERROR 4
 
-/*
- * UART start up initialization.
- */
-void uart_init(int rate,    /* BAUD rate in bits per second */
-               char size,   /* # bits transmit - 5, 6, 7, 8, or 9, default 8 */
-               char parity, /* none, even or odd - default is none */
-               char stop);  /* # stop bits - 1 or 2, default 1 */
-
-/*
- * Send one character to the UART.
- */
+void uart_init(uint32_t rate,  /* bit rate in bits per second (BAUD) */
+               uint8_t size,   /* frame size, can be 5, 6, 7, 8, or 9 bits */
+               uint8_t parity, /* parity, can be none, odd or even */
+               uint8_t stop);  /* number of stop bits, can be 1 or 2 */
 void uart_putchar(char c);
-
-/*
- * Receive one character from the UART.  
- */
 char uart_getchar(void);
-
-/*
- * Send a null-terminated string stored in Program Space to the UART.  
- */
 void uart_putstr_P(const char *c);
-
-/*
- * Send a null-terminated string stored in RAM to the UART.  
- */
 void uart_putstr(char str[]);
-
-/*
- * Put the character into the UART data register for transmission.
- */
 void uart_put_UDR0(char c);
-
-/*
- * Return the status of any errors that may have occurred.
- */
-char uart_get_status(void);
-
-/*
- * Return the status of the receive buffer.  
- */
-char uart_available(void);
-
-/*
- * Return the rx and tx interrupt enable bits.
- */
+uint8_t uart_get_status(void);
+uint8_t uart_available(void);
 void uart_rx_EI(void);
 void uart_rx_DI(void);
 void uart_tx_EI(void);
 void uart_tx_DI(void);
-
-/*
- * Return the tx and rx interrupt enable bits.
- */
-char get_uart_rx_IE(void);
-char get_uart_tx_IE(void);
-
-/*
- * Return the UDRE0 bit in the LSB.
- */
-char get_uart_UDRE0(void);
+uint8_t get_uart_rx_IE(void);
+uint8_t get_uart_tx_IE(void);
+uint8_t get_uart_UDRE0(void);
+uint8_t uart_write(uint8_t length, char buf[]);
+uint8_t uart_write_P(uint8_t length, PGM_P buf);
 
 #endif /* _UART_H_ */
