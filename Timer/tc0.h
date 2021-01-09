@@ -202,13 +202,13 @@ typedef struct {
   TC0_OCR0B_type  ocr0b;
   TC0_TIMSK0_type timsk0;
   TC0_TIFR0_type  tifr0;
-} Timer_Counter0_TYPE;
+} TIMER_COUNTER0_TYPE ;
 
 /* Fill a data structure with the contents of the Timer/Counter 0 registers. */
-void tc0_get_config(Timer_Counter0_TYPE *timer);
+void tc0_get_config(TIMER_COUNTER0_TYPE  *timer);
 
 /* Write the data structure back to the Timer/Counter 0 registers. */
-void tc0_set_config(Timer_Counter0_TYPE *timer);
+void tc0_set_config(TIMER_COUNTER0_TYPE  *timer);
 
 /* Write the value to the OCR0A and OCR0B registers.  */
 void tc0_set_ocr0a(uint8_t val);
