@@ -131,14 +131,14 @@ void graphics_set_bg_colour(uint8_t colour);
  *
  * Return the value of the maximum x dimension of the display.
  */
-uint8_t graphics_get_max_x(void)
+uint8_t graphics_get_max_x(void);
 
 /*
  * graphics_get_max_y()
  *
  * Return the value of the maximum y dimension of the display.
  */
-uint8_t graphics_get_max_y(void)
+uint8_t graphics_get_max_y(void);
 
 /*
  * graphics_putChar()
